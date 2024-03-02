@@ -240,6 +240,15 @@ func Test_validateFileContent(t *testing.T) {
 			},
 			wantErr: true,
 		},
+		{
+			name: "not allow content type",
+			args: args{
+				allowContentTypeToFileExtension: allowContentTypeToFileExtension,
+				requestContentType:              "application/json",
+				requestFileExtension:            ".json",
+			},
+			wantErr: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
