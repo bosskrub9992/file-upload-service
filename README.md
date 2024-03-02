@@ -2,7 +2,7 @@
 
 file-upload-service is a RESTful API server. It has an endpoint that can upload files. All of the uploaded files will be stored in Google Cloud Storage (GCS) in my account. You can use this email account, which has only view permission, to view the files that is already uploaded.
 
-email: publicemailforjob@gmail.com
+email: publicemailforjob@gmail.com \
 pw: Gmail-temp-password-2024
 
 #### Prerequisite
