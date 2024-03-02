@@ -19,7 +19,6 @@ type Config struct {
 		From string
 	}
 	Secret struct {
-		JWT   string
 		Email struct {
 			Host     string
 			Port     int
