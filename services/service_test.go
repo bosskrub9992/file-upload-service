@@ -110,12 +110,13 @@ func TestService_Upload(t *testing.T) {
 			},
 			assertFunc: func(sendEmailErrorCh chan error, err error) {
 				select {
-				case <-time.After(1 * time.Second):
-					// wait for 1 second to ensure that system will do function sendUploadSuccess
 				case sendEmailError := <-sendEmailErrorCh:
 					if sendEmailError != nil {
 						t.Errorf("should have no error when sending email but got 1: %+v", sendEmailError)
 					}
+				default:
+					// wait for 1 second to ensure that system will do function sendUploadSuccess
+					time.Sleep(1 * time.Second)
 				}
 			},
 		},
@@ -142,12 +143,13 @@ func TestService_Upload(t *testing.T) {
 			},
 			assertFunc: func(sendEmailErrorCh chan error, err error) {
 				select {
-				case <-time.After(1 * time.Second):
-					// wait for 1 second to ensure that system will do function sendUploadSuccess
 				case sendEmailError := <-sendEmailErrorCh:
 					if sendEmailError == nil {
 						t.Error("should have error but got no error")
 					}
+				default:
+					// wait for 1 second to ensure that system will do function sendUploadSuccess
+					time.Sleep(1 * time.Second)
 				}
 			},
 		},
