@@ -20,7 +20,7 @@ func TestService_Upload(t *testing.T) {
 	cfg := configs.New()
 	objectStorer := mocks.NewObjectStorer(t)
 	emailSender := mocks.NewEmailSender(t)
-	jpegIMG, err := getBytesFromImage("./images/please.jpeg")
+	jpegIMG, err := getFileBytes("./images/please.jpeg")
 	if err != nil {
 		t.Error(err)
 		return
@@ -251,22 +251,22 @@ func Test_validateFileContent(t *testing.T) {
 }
 
 func Test_detectFileContentType(t *testing.T) {
-	heicIMG, err := getBytesFromImage("./images/please.heic")
+	heicIMG, err := getFileBytes("./images/please.heic")
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	jpegIMG, err := getBytesFromImage("./images/please.jpeg")
+	jpegIMG, err := getFileBytes("./images/please.jpeg")
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	jpgIMG, err := getBytesFromImage("./images/please.jpg")
+	jpgIMG, err := getFileBytes("./images/please.jpg")
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	pngIMG, err := getBytesFromImage("./images/please.png")
+	pngIMG, err := getFileBytes("./images/please.png")
 	if err != nil {
 		t.Error(err)
 		return
@@ -319,7 +319,7 @@ func Test_detectFileContentType(t *testing.T) {
 	}
 }
 
-func getBytesFromImage(path string) ([]byte, error) {
+func getFileBytes(path string) ([]byte, error) {
 	img, err := os.Open(path)
 	if err != nil {
 		return nil, err
