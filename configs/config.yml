@@ -1,0 +1,27 @@
+server:
+  port: ":8080"
+
+upload_file:
+  bucket: "public_bucket_123"
+  max_file_size_mb_limit: "5M"
+  allow_file_extension:
+    image/jpeg:
+      - ".jpeg"
+      - ".jpg"
+      - ".JPEG"
+    image/png:
+      - ".png"
+      - ".PNG"
+    image/heic:
+      - ".heic"
+
+email:
+  from: "from@email.com"
+
+secret:
+  jwt: "secret"
+  email:
+    host: "0.0.0.0"
+    port: 2525
+    username: "user"
+    password: "pass"
